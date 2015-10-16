@@ -9,7 +9,10 @@ public class Calculator {
 				return 0;
 			}
 
-			return 1;
+			String[] numbers = splitNumbers(text);
+			int result = sum(numbers);
+
+			return result;
 	}
 
 
