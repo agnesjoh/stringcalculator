@@ -12,6 +12,8 @@ public class Calculator {
 			String[] numbers = splitNumbers(text);
 			int result = sum(numbers);
 
+
+
 			return result;
 	}
 
