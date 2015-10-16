@@ -29,4 +29,8 @@ public class CalculatorTest {
 		assertEquals(27, Calculator.add("1,2,9,3,7,5"));
 	}
 
+	@Test
+	public void testSeperateByEndl() {
+	assertEquals(4, Calculator.add("1,2\n1"));	}
+
 }
