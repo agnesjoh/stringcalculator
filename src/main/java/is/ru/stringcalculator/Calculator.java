@@ -73,10 +73,4 @@ public class Calculator {
 		}
 		return total;
     }
-    
-    public static void main(String[] args) {
-    	
-    	add("2,-4,3,-5");
-    	
-    }
 }
