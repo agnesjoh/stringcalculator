@@ -12,19 +12,25 @@ public class Calculator {
 			String[] numbers = splitNumbers(text);
 			int result = sum(numbers);
 
-
-
 			return result;
 	}
-
-
 
 	private static int toInt(String number){
 		return Integer.parseInt(number);
 	}
 
 	private static String[] splitNumbers(String numbers){
-	    return numbers.split("[, \n]");
+
+		if(numbers.contains("//")){
+
+		String[] temp = numbers.split("\n");
+		String delimeters = temp[0].substring(2);
+
+
+	    return temp[1].split(delimeters);
+	}
+
+		return numbers.split("[, \n]");
 	}
       
     private static int sum(String[] numbers){

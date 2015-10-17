@@ -33,4 +33,7 @@ public class CalculatorTest {
 	public void testSeperateByEndl() {
 	assertEquals(4, Calculator.add("1,2\n1"));	}
 
+	@Test
+	public void testDifferentDelimeter() {
+	assertEquals(3, Calculator.add("//;\n1;2"));}
 }
