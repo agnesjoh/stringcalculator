@@ -47,6 +47,21 @@ public class Calculator {
 
 	private static String[] splitNumbers(String numbers){
 
+			if(numbers.contains("//[")){
+
+			String[] temp = numbers.split("\n");
+			int length = temp[0].indexOf(']');
+			String delimeters = temp[0].substring(3, length);
+			String res = "";
+			for(int i = 0; i < delimeters.length(); i++){
+				
+				res += "\\" + delimeters.substring(i, i+1);
+				
+			}
+
+		    return temp[1].split(res);
+		}
+
 		if(numbers.contains("//")){
 
 		String[] temp = numbers.split("\n");
