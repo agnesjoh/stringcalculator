@@ -60,7 +60,12 @@ public class CalculatorTest {
 	assertEquals(6, Calculator.add("//[*][%]\n1*2%3"));}
 
 	@Test
-	public void testMultipleLonogDelimeter() {
+	public void testMultipleLongDelimeters() {
 	assertEquals(6, Calculator.add("//[***][%%%]\n1*2%3"));}
+
+	@Test
+	public void testMultipleLongDelimeters2() {
+	assertEquals(6, Calculator.add("//[*.*][%:%]\n1*2%3"));}
+
 
 }
