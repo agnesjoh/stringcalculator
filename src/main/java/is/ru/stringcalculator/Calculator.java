@@ -4,10 +4,6 @@ public class Calculator {
 
 	public static int add(String text){
 
-			if(text.isEmpty()){
-
-				return 0;
-			}
 			String[] numbers = splitNumbers(text);
 			int count = 0;
 			
@@ -47,18 +43,22 @@ public class Calculator {
 
 	private static String[] splitNumbers(String numbers){
 
-			if(numbers.contains("//[")){
+		if(numbers.contains("//[")){
 
 			String[] temp = numbers.split("\n");
-			int length = temp[0].indexOf(']');
-			String delimeters = temp[0].substring(3, length);
+			int length = numbers.indexOf('\n');
+			String delimeters = temp[0].substring(3, length-1);
 			String res = "";
 			for(int i = 0; i < delimeters.length(); i++){
 				
-				res += "\\" + delimeters.substring(i, i+1);
+				if(!(delimeters.charAt(i) == ']' || delimeters.charAt(i) == '[')){
+
+					res = res + "\\" + "\\" + delimeters.substring(i, i+1);
+				}
 				
 			}
 
+			res = "[" + res + "]";
 		    return temp[1].split(res);
 		}
 
@@ -78,11 +78,16 @@ public class Calculator {
  	    int total = 0;
         for(String number : numbers){
 
-        	int temp = toInt(number);
+        	if(!(number.isEmpty())){
 
-        	if(temp <= 1000){
+        		int temp = toInt(number);
 
-		   	 total += temp;
+        		if(temp <= 1000){
+
+		   	 	total += temp;
+			}
+
+        	
 		   	}
 
 		}
