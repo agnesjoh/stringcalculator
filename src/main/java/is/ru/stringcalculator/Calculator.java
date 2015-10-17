@@ -8,8 +8,34 @@ public class Calculator {
 
 				return 0;
 			}
-
 			String[] numbers = splitNumbers(text);
+			int count = 0;
+			
+			if(text.contains("-")){
+				
+				String message = "Negatives not allowed: ";
+				for(int i = 0; i < numbers.length; i++){
+					
+					if(numbers[i].contains("-")){
+						
+						if(count == 0){
+							message += numbers[i];
+							count++;
+							
+						}
+						else {
+							message += ',' + numbers[i];
+						}
+						
+					}
+					
+				}
+				throw new IllegalArgumentException(message);
+				
+			}
+
+			
+			
 			int result = sum(numbers);
 
 			return result;
@@ -40,5 +66,10 @@ public class Calculator {
 		}
 		return total;
     }
-
+    
+    public static void main(String[] args) {
+    	
+    	add("2,-4,3,-5");
+    	
+    }
 }
