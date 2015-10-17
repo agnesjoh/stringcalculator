@@ -48,10 +48,16 @@ public class CalculatorTest {
 		}
 	}
 
-	@Test
-	(expected = IllegalArgumentException.class)
+	@Test(expected = IllegalArgumentException.class)
 	public void testManyNegativeNumber() {
-	assertEquals("Negatives not allowed: -4,-5", Calculator.add("2,-4,3,-5"));}
+		try{
+			Calculator.add("2,-4,3,-5");
+		}
+		catch(IllegalArgumentException ex){
+			assertEquals("Negatives not allowed: -4,-5", ex.getMessage());
+			throw ex; 
+		}
+	}
 
 	@Test
 	public void testBigNumber() {
