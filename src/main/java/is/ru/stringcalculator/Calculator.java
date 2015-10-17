@@ -62,7 +62,14 @@ public class Calculator {
     private static int sum(String[] numbers){
  	    int total = 0;
         for(String number : numbers){
-		    total += toInt(number);
+
+        	int temp = toInt(number);
+
+        	if(temp <= 1000){
+
+		   	 total += temp;
+		   	}
+
 		}
 		return total;
     }
